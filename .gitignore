@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Local data pack (provided separately, not committed)
+data/
+
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+
+# OS cruft
+.DS_Store
+Thumbs.db

@@ -1,0 +1,236 @@
+main {
+  flex: 1;
+  background-color: var(--bg-subtle);
+}
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2.5rem 1rem 3.5rem;
+}
+
+.hero h1 {
+  font-size: 3.25rem;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+}
+
+.home-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.highlight-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 380px;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.auth-form label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.auth-form input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--yale-blue);
+  box-shadow: 0 0 0 3px rgba(0, 53, 107, 0.12);
+}
+
+.auth-form button {
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background-color: var(--yale-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.auth-form button:hover {
+  background-color: var(--yale-blue-dark);
+}
+
+.auth-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-form__error {
+  color: #b42318;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-form__switch {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.auth-form__switch a {
+  color: var(--yale-blue);
+  font-weight: 600;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background-color: #f4f3ec;
+}
+
+.product-card__body {
+  padding: 0.85rem 1rem 1.1rem;
+}
+
+.product-card__body h2 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+
+.product-card__price {
+  font-weight: 700;
+  color: var(--yale-blue);
+  margin: 0 0 0.4rem;
+}
+
+.product-card__description {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--yale-blue);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.product-detail__image img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.product-detail__price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--yale-blue);
+}
+
+.size-stock-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.size-stock-list li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+}
+
+.size-stock-list__size {
+  font-weight: 600;
+}
+
+.in-stock {
+  color: #1a7f37;
+}
+
+.out-of-stock {
+  color: #999999;
+}
+
+.product-detail__total-stock {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 720px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+}

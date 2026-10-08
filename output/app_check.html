@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Campus Customs — App Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --yale-blue: #00356b;
+    --yale-blue-dark: #00264d;
+    --text: #1b1b1b;
+    --text-muted: #5a5a5a;
+    --bg-subtle: #f7f8fa;
+    --border: #e5e4e7;
+    --radius: 10px;
+    --pass: #1a7f37;
+    --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+    --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 16px/1.6 var(--sans);
+    color: var(--text);
+    background: var(--bg-subtle);
+  }
+  header {
+    background-color: var(--yale-blue);
+    color: #fff;
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  header h1 {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: 2.25rem;
+    margin: 0 0 0.5rem;
+  }
+  header p {
+    margin: 0;
+    opacity: 0.9;
+  }
+  .summary-bar {
+    max-width: 900px;
+    margin: -1.5rem auto 2rem;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .summary-bar .stat { text-align: center; }
+  .summary-bar .stat .n {
+    font-family: var(--heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--pass);
+  }
+  .summary-bar .stat .label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  section h2 {
+    font-family: var(--heading);
+    color: var(--yale-blue);
+    font-size: 1.3rem;
+    margin: 0 0 1rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 0.55rem 0.5rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
+  th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+  td.check { white-space: nowrap; }
+  .pass {
+    display: inline-block;
+    background: #e8f5e9;
+    color: var(--pass);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+  }
+  code {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.85em;
+  }
+  .note {
+    background: #fff8e1;
+    border: 1px solid #f0d98a;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 1rem 0 2.5rem;
+  }
+  .screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .screenshot-grid figure {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-subtle);
+  }
+  .screenshot-grid img {
+    width: 100%;
+    display: block;
+  }
+  .screenshot-grid figcaption {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Campus Customs — App Check</h1>
+  <p>Problem 11: Site testing — live check of the running site and API, run against the backend and frontend dev servers.</p>
+</header>
+
+<div class="summary-bar">
+  <div class="stat"><div class="n">17</div><div class="label">Checks Run</div></div>
+  <div class="stat"><div class="n">17</div><div class="label">Passed</div></div>
+  <div class="stat"><div class="n">0</div><div class="label">Failed</div></div>
+</div>
+
+<main>
+
+<section>
+  <h2>Catalogue &amp; Product Pages</h2>
+  <table>
+    <tr><th>Check</th><th>Result</th><th>Status</th></tr>
+    <tr><td>Products list endpoint (<code>GET /products</code>)</td><td>Returns full catalogue with name, price, short description, image URL</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Product detail endpoint (<code>GET /products/{id}</code>)</td><td>Returns description, colors, price, per-size stock, total stock</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Unknown product id</td><td>Returns <code>404</code> instead of a fake result</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Product image serving (<code>/media/products/...</code>)</td><td>Images load (200)</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Frontend routes: Home, Products, About, Login, Create Account, Product Detail</td><td>All return 200 from the Vite dev server</td><td class="check"><span class="pass">PASS</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Accounts &amp; Login</h2>
+  <table>
+    <tr><th>Check</th><th>Result</th><th>Status</th></tr>
+    <tr><td>Create account</td><td>New user row created, password never returned in the response</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Duplicate email on signup</td><td>Rejected with <code>409</code></td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Login with correct password</td><td>Returns the account's profile info</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Login with wrong password</td><td>Rejected with <code>401</code></td><td class="check"><span class="pass">PASS</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Shop Chat Agent</h2>
+  <table>
+    <tr><th>Check</th><th>Result</th><th>Status</th></tr>
+    <tr><td>General product search ("Do you have any Yale crewnecks?")</td><td>Returned real matching products as clickable cards, not invented ones</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Page context ("Is this in stock in size L?" while viewing a product page)</td><td>Correctly resolved "this" to the viewed product and gave the real stock count</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Conversation memory ("What product were we just talking about?")</td><td>Correctly recalled the prior product from reloaded history</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Chat history reload (<code>GET /chat/history/{id}</code>)</td><td>Returned the full saved conversation in order, with product ids attached</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Guest chat is not persisted</td><td>Stored message count for a logged-in user was unaffected by a guest message</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Out-of-stock alternatives</td><td>When the requested size was unavailable, the agent proactively suggested real in-stock alternatives instead of a dead end</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Prompt-injection attempt ("ignore all prior instructions...")</td><td>Declined without inventing a discount code or breaking character</td><td class="check"><span class="pass">PASS</span></td></tr>
+    <tr><td>Empty chat message</td><td>Rejected with <code>400</code> instead of calling the agent</td><td class="check"><span class="pass">PASS</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Build &amp; Styling</h2>
+  <table>
+    <tr><th>Check</th><th>Result</th><th>Status</th></tr>
+    <tr><td>Production build (<code>npm run build</code>)</td><td>TypeScript check and Vite build both complete with no errors</td><td class="check"><span class="pass">PASS</span></td></tr>
+  </table>
+  <div class="note">
+    <strong>Note:</strong> the in-app Browser preview isn't enabled on this install, so this check was done with the backend and frontend dev servers running and verified via direct API/route calls rather than a visual screenshot. All throwaway test accounts and chat history created during this check were deleted afterward — the live database is unchanged from before the check.
+  </div>
+</section>
+
+<section>
+  <h2>Screenshots</h2>
+  <div class="screenshot-grid">
+    <figure>
+      <img src="app_check_images/inventory.png" alt="Chat panel showing full per-size stock for the Basic Hoodie Big Yale, with the product card and auto-scroll keeping the latest reply in view" />
+      <figcaption>Chat shows inventory level of the Big Yale Hoodie. (Also demonstrates the auto-scroll usability improvement added in Problem 9 — the panel stays scrolled to the newest reply.)</figcaption>
+    </figure>
+    <figure>
+      <img src="app_check_images/search.png" alt="Chat panel responding to a search for green clothing, honestly reporting none are available instead of inventing a match" />
+      <figcaption>Chat shows the dynamic search result.</figcaption>
+    </figure>
+  </div>
+</section>
+</main>
+
+<footer>Generated for Problem 11 — Site testing (app check)</footer>
+
+</body>
+</html>
